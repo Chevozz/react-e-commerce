@@ -14,8 +14,7 @@ export default function AboutPage() {
       <section className="card p-5 sm:p-6">
         <p className="leading-relaxed text-ink-700">
           Cem&apos;ong adalah UMKM camilan ringan yang menjual keripik talas dan
-          rengginang. Halaman ini adalah versi tugas kuliah: katalog, keranjang,
-          checkout, dan panel admin sederhana.
+          rengginang.
         </p>
       </section>
 
