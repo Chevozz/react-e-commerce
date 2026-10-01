@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* =====================================================================
+   Token visual Cem'ong.
+   Warna brand (talas ungu + coklat rengginang) + kertas beras sebagai latar.
+   Semua warna dipakai lewat nama token (brand-600, sand-100, ink-700, ...)
+   supaya tampilan konsisten di seluruh halaman.
+   ===================================================================== */
+@theme {
+  --color-brand-50: #f6f2fa;
+  --color-brand-100: #e9e1f4;
+  --color-brand-200: #d3c4e6;
+  --color-brand-500: #6a4c93;
+  --color-brand-600: #5a3f7d;
+  --color-brand-700: #472f63;
+  --color-sand-100: #fbf6ee;
+  --color-sand-200: #f2e6d3;
+  --color-sand-300: #e8c488;
+  --color-sand-500: #d4a373;
+  --color-paper: #fafafa;
+  --color-ink-700: #2d2d2d;
+  --color-ink-500: #737373;
+  --color-line: #e7e2dd;
+  --color-danger: #b42318;
+  --color-danger-50: #fdf1f0;
+  --color-success: #2f7d4a;
+  --color-success-50: #eaf5ee;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-paper);
+    color: var(--color-ink-700);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Judul tidak boleh menggantung satu kata di baris terakhir. */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  /* Bagian bawaan browser tetap ikut identitas Cem'ong. */
+  ::selection {
+    background-color: var(--color-brand-500);
+    color: #ffffff;
+  }
+
+  /* Garis gulir tipis supaya tabel panjang tidak tampak seperti bawaan OS. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-sand-300) transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* =====================================================================
+   Kelas komponen bersama.
+   Dipakai berulang di halaman toko & admin supaya tombol, input, dan kartu
+   punya bentuk yang sama. Ditulis di CSS agar JSX tetap pendek dibaca.
+   ===================================================================== */
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 40px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease,
+      color 0.15s ease;
+  }
+  .btn:disabled {
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand-600);
+    color: #ffffff;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--color-brand-700);
+  }
+  /* Tombol mati (misal produk habis) dibaca sebagai "tidak tersedia",
+     bukan sebagai ungu yang rusak. */
+  .btn-primary:disabled {
+    background-color: var(--color-sand-200);
+    color: var(--color-ink-700);
+  }
+
+  .btn-outline {
+    background-color: #ffffff;
+    border-color: var(--color-line);
+    color: var(--color-ink-700);
+  }
+  .btn-outline:hover:not(:disabled) {
+    background-color: var(--color-sand-100);
+    border-color: var(--color-sand-300);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-brand-600);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background-color: var(--color-brand-50);
+  }
+
+  .btn-sm {
+    min-height: 38px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+
+  .input {
+    width: 100%;
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-ink-700);
+    caret-color: var(--color-brand-500);
+    transition: border-color 0.15s ease;
+  }
+  .input::placeholder {
+    color: var(--color-ink-500);
+  }
+  .input:focus {
+    border-color: var(--color-brand-500);
+    outline: none;
+  }
+  .input:focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 1px;
+  }
+
+  .card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+  }
+
+  /* Angka harga rata kanan-kiri saat ditumpuk dalam tabel/daftar. */
+  .price {
+    font-variant-numeric: tabular-nums;
+  }
+}
