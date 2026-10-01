@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 
 // Halaman /admin/about.
 export default function AboutPage() {
-  const teknologi = ["React", "React Router", "Tailwind CSS", "Vite"];
-
   return (
     <div className="max-w-2xl space-y-6">
       <div>
@@ -19,25 +17,6 @@ export default function AboutPage() {
           rengginang. Halaman ini adalah versi tugas kuliah: katalog, keranjang,
           checkout, dan panel admin sederhana.
         </p>
-        <p className="mt-4 leading-relaxed text-ink-500">
-          Project ini merupakan latihan frontend programming dengan React.
-          Datanya masih statis — tanpa backend, tanpa database, dan tanpa
-          autentikasi.
-        </p>
-      </section>
-
-      <section className="card p-5 sm:p-6">
-        <h2 className="font-bold text-ink-700">Teknologi</h2>
-        <ul className="mt-4 flex flex-wrap gap-2">
-          {teknologi.map((item) => (
-            <li
-              key={item}
-              className="rounded-md bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-700"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
       </section>
 
       <Link to="/admin/dashboard" className="btn btn-outline">
