@@ -65,7 +65,7 @@ export default function ProductForm() {
       price: Number(form.price),
       pcs: Number(form.pcs),
       description: form.description.trim(),
-      image: form.image.trim() || "/images/products/keripik-talas-gurih.svg",
+      image: form.image.trim() || `${import.meta.env.BASE_URL}images/products/keripik-talas-gurih.svg`,
       available: form.available,
     };
 
@@ -185,14 +185,14 @@ export default function ProductForm() {
             type="text"
             value={form.image}
             onChange={handleChange}
-            placeholder="/images/products/keripik-talas-gurih.svg"
+            placeholder={`${import.meta.env.BASE_URL}images/products/keripik-talas-gurih.svg`}
             className="input mt-1.5"
           />
         </Field>
 
         {form.image && (
           <img
-            src={form.image}
+            src={`${import.meta.env.BASE_URL}${form.image.replace(/^\/+/, "")}`}
             alt="Pratinjau produk"
             className="h-24 w-24 rounded-md border border-line bg-sand-100 object-cover"
           />

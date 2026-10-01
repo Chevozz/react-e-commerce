@@ -45,7 +45,7 @@ export default function ProductDetail() {
 
       <div className="grid gap-8 md:grid-cols-2">
         <img
-          src={product.image}
+          src={`${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`}
           alt={product.name}
           className="w-full rounded-lg border border-line bg-sand-100 object-cover"
         />

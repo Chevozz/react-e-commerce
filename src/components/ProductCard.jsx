@@ -8,7 +8,7 @@ export default function ProductCard({ product, onAddToCart }) {
     <article className="card flex flex-col overflow-hidden transition-colors hover:border-sand-300">
       <Link to={`/product/${product.id}`} className="block">
         <img
-          src={product.image}
+          src={`${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`}
           alt={product.name}
           className="h-44 w-full bg-sand-100 object-cover"
         />

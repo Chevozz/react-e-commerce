@@ -39,7 +39,7 @@ export default function Dashboard() {
           </Link>
         </div>
         <img
-          src="/images/hero-camilan.svg"
+          src={`${import.meta.env.BASE_URL}images/hero-camilan.svg`}
           alt="Ilustrasi camilan Cem'ong"
           className="w-full rounded-lg"
         />

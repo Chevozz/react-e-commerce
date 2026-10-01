@@ -32,7 +32,7 @@ export default function Navbar() {
           className="flex items-center gap-2"
         >
           <img
-            src="/images/accents/taro-chip-flake.svg"
+            src={`${import.meta.env.BASE_URL}/images/accents/taro-chip-flake.svg`}
             alt=""
             className="h-8 w-8 rounded-full bg-white/10 p-1"
           />

@@ -8,7 +8,7 @@ export default function CartItem({ item, onIncrease, onDecrease, onRemove }) {
     <div className="card flex flex-col gap-3 p-3 sm:flex-row sm:items-center sm:gap-4">
       <Link to={`/product/${item.id}`} className="shrink-0">
         <img
-          src={item.image}
+          src={`${import.meta.env.BASE_URL}${item.image.replace(/^\/+/, "")}`}
           alt={item.name}
           className="h-20 w-20 rounded-md bg-sand-100 object-cover"
         />

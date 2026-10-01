@@ -37,7 +37,7 @@ export default function ProductTable({ products, onToggle, onDelete }) {
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
                       <img
-                        src={product.image}
+                        src={`${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`}
                         alt=""
                         className="h-10 w-10 shrink-0 rounded-md bg-sand-100 object-cover"
                       />
@@ -74,7 +74,7 @@ export default function ProductTable({ products, onToggle, onDelete }) {
           <div key={product.id} className="card p-4">
             <div className="flex items-start gap-3">
               <img
-                src={product.image}
+                src={`${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, "")}`}
                 alt=""
                 className="h-12 w-12 shrink-0 rounded-md bg-sand-100 object-cover"
               />

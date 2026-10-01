@@ -14,7 +14,7 @@ export default function AdminLayout() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <Link to="/admin" className="flex items-center gap-2">
             <img
-              src="/images/accents/taro-chip-flake.svg"
+              src={`${import.meta.env.BASE_URL}/images/accents/taro-chip-flake.svg`}
               alt=""
               className="h-8 w-8 rounded-full bg-brand-50 p-1"
             />
